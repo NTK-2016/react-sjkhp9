@@ -7,7 +7,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: 'TOG'
+      name: 'TOG',
+       header: "Header from state...",
+        content: "Content from state..."
     };
   }
 
@@ -16,11 +18,14 @@ class App extends Component {
       <div>
         <Hello name={this.state.name} />
         <p>
-          
+          <h1>{this.state.header}</h1>
+            <h2>{this.state.content}</h2>
+              <h1>{this.props.headerProp}</h1>
+            <h2>{this.props.contentProp}</h2>
         </p>
       </div>
     );
   }
 }
 
-render(<App />, document.getElementById('root'));
+render(<App headerProp = "Header from props..." contentProp = "Content from props..."/>, document.getElementById('root'));
