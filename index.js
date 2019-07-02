@@ -12,6 +12,7 @@ class App extends Component {
         content: "Content from state...",
         data :[]
     };
+     this.setStateHandler = this.setStateHandler.bind(this);
   }
 
   render() {
