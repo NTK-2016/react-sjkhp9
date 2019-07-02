@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
-
+import ReactDOM from 'react-dom'
 class App extends Component {
   constructor() {
     super();
@@ -12,6 +12,7 @@ class App extends Component {
         content: "Content from state...",
         data :[]
     };
+    this.findDomNodeHandler = this.findDomNodeHandler.bind(this);
      this.setStateHandler = this.setStateHandler.bind(this);
      this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
   };
@@ -22,6 +23,10 @@ class App extends Component {
 	  myArray.push(item);
       this.setState({data: myArray})
    };
+     findDomNodeHandler() {
+      var myDiv = document.getElementById('myDiv');
+      ReactDOM.findDOMNode(myDiv).style.color = '#AA0011';
+   }
      forceUpdateHandler() {
       this.forceUpdate();
    };
@@ -34,7 +39,8 @@ class App extends Component {
             <h4>State Array: {this.state.data}</h4>
              <button onClick = {this.forceUpdateHandler}>FORCE UPDATE</button>
             <h4>Random number: {Math.random()}</h4>
-
+  <button onClick = {this.findDomNodeHandler}>FIND DOME NODE</button>
+            <div id = "myDiv">NODE</div>
           <h1>{this.state.header}</h1>
             <h2>{this.state.content}</h2>
               <h1>{this.props.headerProp}</h1>
