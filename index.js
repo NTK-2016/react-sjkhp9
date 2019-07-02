@@ -9,7 +9,8 @@ class App extends Component {
     this.state = {
       name: 'TOG',
        header: "Header from state...",
-        content: "Content from state..."
+        content: "Content from state...",
+        data :[]
     };
   }
 
