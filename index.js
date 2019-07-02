@@ -13,13 +13,20 @@ class App extends Component {
         data :[]
     };
      this.setStateHandler = this.setStateHandler.bind(this);
-  }
-
+  };
+ setStateHandler() {
+      var item = "setState..."
+      var myArray = this.state.data.slice();
+	  myArray.push(item);
+      this.setState({data: myArray})
+   };
   render() {
     return (
       <div>
         <Hello name={this.state.name} />
         <p>
+           <button onClick = {this.setStateHandler}>SET STATE</button>
+            <h4>State Array: {this.state.data}</h4>
           <h1>{this.state.header}</h1>
             <h2>{this.state.content}</h2>
               <h1>{this.props.headerProp}</h1>
