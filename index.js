@@ -13,6 +13,7 @@ class App extends Component {
         data :[]
     };
      this.setStateHandler = this.setStateHandler.bind(this);
+     this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
   };
  setStateHandler() {
       var item = "setState..."
@@ -21,6 +22,9 @@ class App extends Component {
 	  myArray.push(item);
       this.setState({data: myArray})
    };
+     forceUpdateHandler() {
+      this.forceUpdate();
+   };
   render() {
     return (
       <div>
@@ -28,6 +32,9 @@ class App extends Component {
         <p>
            <button onClick = {this.setStateHandler}>SET STATE</button>
             <h4>State Array: {this.state.data}</h4>
+             <button onClick = {this.forceUpdateHandler}>FORCE UPDATE</button>
+            <h4>Random number: {Math.random()}</h4>
+
           <h1>{this.state.header}</h1>
             <h2>{this.state.content}</h2>
               <h1>{this.props.headerProp}</h1>
