@@ -17,6 +17,7 @@ class App extends Component {
  setStateHandler() {
       var item = "setState..."
       var myArray = this.state.data.slice();
+   
 	  myArray.push(item);
       this.setState({data: myArray})
    };
